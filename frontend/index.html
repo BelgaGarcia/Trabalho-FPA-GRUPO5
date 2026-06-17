@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sincronizador de Padroes</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">FPAA</p>
+        <h1>Sincronizador de Padroes</h1>
+        <p class="intro">
+          Base inicial da interface para comparar as sequencias de Helena e Marcus.
+        </p>
+      </section>
+
+      <section class="panel">
+        <form class="form">
+          <label>
+            <span>Helena</span>
+            <input id="input-helena" type="text" maxlength="80" placeholder="sequencia de eventos" />
+          </label>
+
+          <label>
+            <span>Marcus</span>
+            <input id="input-marcus" type="text" maxlength="80" placeholder="sequencia de eventos" />
+          </label>
+
+          <fieldset>
+            <legend>Metodo</legend>
+            <label><input type="radio" name="metodo" value="dp" checked /> DP</label>
+            <label><input type="radio" name="metodo" value="backtracking" /> DP + Backtracking</label>
+          </fieldset>
+
+          <button type="button" id="btn-sync">Sincronizar</button>
+        </form>
+
+        <div class="status">
+          <p id="server-status">Verificando servidor...</p>
+          <pre id="preview-output">Os resultados aparecerao aqui nas proximas etapas.</pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>
+
