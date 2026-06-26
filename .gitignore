@@ -6,3 +6,5 @@ venv/
 bin/
 obj/
 
+/src/.vs/src
+/.gitignore

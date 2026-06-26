@@ -12,7 +12,7 @@
         <p class="eyebrow">FPAA</p>
         <h1>Sincronizador de Padroes</h1>
         <p class="intro">
-          Base inicial da interface para comparar as sequencias de Helena e Marcus.
+          Etapa inicial para comparar as sequencias de Helena e Marcus usando programacao dinamica.
         </p>
       </section>
 
@@ -28,18 +28,12 @@
             <input id="input-marcus" type="text" maxlength="80" placeholder="sequencia de eventos" />
           </label>
 
-          <fieldset>
-            <legend>Metodo</legend>
-            <label><input type="radio" name="metodo" value="dp" checked /> DP</label>
-            <label><input type="radio" name="metodo" value="backtracking" /> DP + Backtracking</label>
-          </fieldset>
-
-          <button type="button" id="btn-sync">Sincronizar</button>
+          <button type="button" id="btn-sync">Calcular LCS</button>
         </form>
 
         <div class="status">
           <p id="server-status">Verificando servidor...</p>
-          <pre id="preview-output">Os resultados aparecerao aqui nas proximas etapas.</pre>
+          <pre id="preview-output">O comprimento da LCS e a tabela DP aparecerao aqui.</pre>
         </div>
       </section>
     </main>
@@ -47,4 +41,3 @@
     <script src="/js/app.js"></script>
   </body>
 </html>
-

@@ -3,7 +3,7 @@ const marcusInput = document.querySelector("#input-marcus");
 const previewOutput = document.querySelector("#preview-output");
 const statusEl = document.querySelector("#server-status");
 
-function sanitizeInput(input) {
+function limitarEntradaParaEventos(input) {
   input.addEventListener("input", () => {
     input.value = input.value.toLowerCase().replace(/[^a-z]/g, "");
   });
@@ -34,9 +34,9 @@ function formatarResultado(dados) {
   }
 
   if (Array.isArray(dados.subsequencias)) {
-    linhas.push("", "Subsequencias encontradas:");
-    dados.subsequencias.forEach((subsequencia, indice) => {
-      linhas.push(`${indice + 1}. ${subsequencia || "(vazia)"}`);
+    linhas.push("", "Subsequencias comuns mais longas:");
+    dados.subsequencias.forEach((subsequencia) => {
+      linhas.push(subsequencia || "(vazia)");
     });
   }
 
@@ -48,16 +48,15 @@ function formatarResultado(dados) {
   return linhas.join("\n");
 }
 
-sanitizeInput(helenaInput);
-sanitizeInput(marcusInput);
+limitarEntradaParaEventos(helenaInput);
+limitarEntradaParaEventos(marcusInput);
 
 document.querySelector("#btn-sync").addEventListener("click", async () => {
   const helena = helenaInput.value.trim();
   const marcus = marcusInput.value.trim();
-  const metodo = document.querySelector('input[name="metodo"]:checked')?.value || "dp";
 
   if (!helena || !marcus) {
-    previewOutput.textContent = "Preencha as sequencias de Helena e Marcus antes de sincronizar.";
+    previewOutput.textContent = "Preencha as sequencias de Helena e Marcus antes de calcular.";
     return;
   }
 
@@ -67,7 +66,7 @@ document.querySelector("#btn-sync").addEventListener("click", async () => {
     const resposta = await fetch("/api/sincronizar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ helena, marcus, metodo }),
+      body: JSON.stringify({ helena, marcus, metodo: "completo" }),
     });
 
     const dados = await resposta.json();

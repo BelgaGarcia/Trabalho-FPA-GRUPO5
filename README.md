@@ -4,32 +4,49 @@ Projeto inicial da disciplina de Fundamentos de Projeto e Analise de Algoritmos.
 
 ## Objetivo
 
-Construir uma solucao para comparar as sequencias de Helena e Marcus e encontrar subsequencias comuns respeitando a ordem dos eventos.
+Comparar as sequencias de Helena e Marcus e imprimir todas as maiores subsequencias comuns.
 
 ## Estado atual
 
-Esta base contem:
+Esta versao resolve o problema completo:
 
-- estrutura inicial do projeto
-- servidor Flask para demonstracao
-- frontend estatico inicial
-- estrutura inicial do nucleo C#
-- adaptador Python para integracao futura
+- validacao das entradas;
+- construcao da tabela de programacao dinamica;
+- calculo do comprimento da LCS;
+- backtracking sobre a tabela DP;
+- remocao de repeticoes;
+- ordenacao alfabetica das subsequencias;
+- linha em branco entre blocos de saida.
 
 ## Como executar
 
+Compile o nucleo C#:
+
 ```powershell
-pip install -r requirements.txt
-python server.py
+dotnet build .\csharp\FpaaLcs.Core\FpaaLcs.Core.csproj
 ```
 
-Abra `http://127.0.0.1:5000`.
+Execute com uma entrada no formato do roteiro:
+
+```powershell
+dotnet run --project .\csharp\FpaaLcs.Core\FpaaLcs.Core.csproj
+```
+
+## Formato da entrada
+
+```text
+2
+abcbdab
+bdcaba
+abc
+def
+```
 
 ## Organizacao
 
-- `server.py`: servidor Flask inicial
+- `server.py`: servidor Flask usado na demonstracao
 - `frontend/`: interface estatica inicial
-- `src/`: suporte Python e integracao futura
-- `csharp/FpaaLcs.Core/`: nucleo inicial em C#
+- `src/`: suporte Python e integracao com o nucleo C#
+- `src/LcsEtapa1/`: versao simples em C# para apresentar o algoritmo
+- `csharp/FpaaLcs.Core/`: nucleo C# usado pelo servidor
 - `docs/`: notas tecnicas do grupo
-

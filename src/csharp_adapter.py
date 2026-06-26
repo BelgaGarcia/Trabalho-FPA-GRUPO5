@@ -4,7 +4,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 C_SHARP_EXE = (
-    BASE_DIR / "csharp" / "FpaaLcs.Core" / "bin" / "Debug" / "net10.0" / "FpaaLcs.Core"
+    BASE_DIR / "csharp" / "FpaaLcs.Core" / "bin" / "Debug" / "net9.0" / "FpaaLcs.Core.exe"
 )
 
 
@@ -35,4 +35,3 @@ def executar_nucleo(payload: dict) -> dict:
             "motivo": "resposta invalida do nucleo csharp",
             "stdout": resultado.stdout.strip(),
         }
-

@@ -4,14 +4,19 @@
 
 O projeto comeca com duas camadas:
 
-- Flask para servir a interface e expor endpoints iniciais
-- C# para concentrar o nucleo de processamento nas proximas etapas
+- Flask para servir a interface e expor o endpoint de calculo
+- C# para concentrar o nucleo de processamento da LCS
 
-## Proximas entregas previstas
+## Estado desta etapa
 
 - validacao das entradas
-- tabela DP da LCS
-- enumeracao iterativa
-- backtracking
-- integracao completa entre Flask e C#
+- construcao da tabela de programacao dinamica
+- calculo do comprimento da maior subsequencia comum
+- backtracking sobre a tabela DP
+- remocao de subsequencias repetidas
+- ordenacao alfabetica das subsequencias
 
+## Observacao sobre a saida
+
+No formato do roteiro, o programa imprime apenas as subsequencias comuns mais longas, uma por linha.
+Entre conjuntos diferentes, e impressa uma linha em branco.
