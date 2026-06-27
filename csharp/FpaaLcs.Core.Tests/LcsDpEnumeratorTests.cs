@@ -19,7 +19,7 @@ public class LcsDpEnumeratorTests
     }
 
     [Fact]
-    public void EncontrarTodas_ComEmpateNaTabela_ExploraCaminhosOtimos()
+    public void EncontrarTodas_ComEmpateNaTabela_RetornaEmOrdemAlfabetica()
     {
         const string helena = "bd";
         const string marcus = "db";
@@ -27,9 +27,7 @@ public class LcsDpEnumeratorTests
         var tabela = LcsDpTable.Montar(helena, marcus);
         var subsequencias = LcsDpEnumerator.EncontrarTodas(tabela, helena, marcus);
 
-        Assert.Equal(2, subsequencias.Count);
-        Assert.Contains("b", subsequencias);
-        Assert.Contains("d", subsequencias);
+        Assert.Equal(new[] { "b", "d" }, subsequencias);
     }
 
     [Fact]

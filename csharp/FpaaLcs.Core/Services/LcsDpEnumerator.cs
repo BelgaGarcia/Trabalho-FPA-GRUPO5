@@ -47,6 +47,8 @@ public static class LcsDpEnumerator
             }
         }
 
-        return encontradas.ToList();
+        return encontradas
+            .OrderBy(subsequencia => subsequencia, StringComparer.Ordinal)
+            .ToList();
     }
 }
