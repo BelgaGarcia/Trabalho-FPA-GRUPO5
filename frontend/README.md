@@ -57,7 +57,7 @@ Requisição:
 
 - `metodo`: `"dp"` (apenas comprimento) ou `"backtracking"` (todas as LCS).
 
-Resposta (sucesso):
+Resposta (sucesso) — forma **crua** do núcleo C#:
 
 ```json
 {
@@ -65,13 +65,14 @@ Resposta (sucesso):
   "helena": "ijkijkii",
   "marcus": "ikjikji",
   "metodo": "backtracking",
-  "comprimento": 5,
+  "comprimento_maximo": 5,
+  "quantidade": 7,
   "tabela": [[0, 0, 0], [0, 0, 1]],
   "subsequencias": ["ijiji", "ijiki", "ijkji", "ikiji", "ikiki", "ikjii", "ikjki"]
 }
 ```
 
-- `comprimento`: comprimento da maior subsequência comum.
+- `comprimento_maximo`: comprimento da maior subsequência comum.
 - `tabela`: matriz de PD `(|helena|+1) x (|marcus|+1)`.
 - `subsequencias`: todas as LCS distintas, em ordem alfabética. Pode vir vazia
   quando `metodo === "dp"`.
@@ -79,10 +80,16 @@ Resposta (sucesso):
 Resposta (erro de validação/processamento):
 
 ```json
-{ "status": "erro", "erro": "Mensagem amigável de erro." }
+{ "status": "erro", "motivo": "Mensagem amigável de erro." }
 ```
 
-O cliente trata `status: "erro"` (ou HTTP ≠ 2xx) exibindo a mensagem na interface.
+> **Normalização no front.** O núcleo C# usa `comprimento_maximo` e `motivo`. Para
+> não acoplar os componentes a esses nomes, [`src/lib/api.ts`](./src/lib/api.ts)
+> mapeia a resposta crua para um contrato limpo (`comprimento`, mensagem de erro
+> via `ApiError`) em um único ponto. O front aceita tanto `comprimento` quanto
+> `comprimento_maximo`, e tanto `erro` quanto `motivo`, ficando tolerante a
+> ajustes do Integrante 6 na API. O cliente trata `status: "erro"`/
+> `"indisponivel"` (ou HTTP ≠ 2xx) exibindo a mensagem na interface.
 
 ## Estrutura
 
