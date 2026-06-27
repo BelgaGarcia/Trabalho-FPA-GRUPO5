@@ -24,7 +24,7 @@ O frontend depende do servidor **Flask** (que expõe a API). Rode os dois:
 ```bash
 # 1) backend (na raiz do projeto)
 pip install -r requirements.txt
-python server.py            # http://127.0.0.1:5000
+python server.py            # http://127.0.0.1:5001
 
 # 2) frontend
 cd frontend
