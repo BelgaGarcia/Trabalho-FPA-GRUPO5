@@ -3,7 +3,7 @@
  * ---------------------------------------------------------------------------
  * Trabalho de Fundamentos de Projeto e Análise de Algoritmos (FPAA) — Grupo 5.
  *
- * Responsabilidade do Integrante 7 (Frontend): apenas CONSUMIR a API e
+ * Responsabilidade de Lucas (Frontend): apenas CONSUMIR a API e
  * RENDERIZAR os resultados. O cálculo (validação, tabela de PD, enumeração e
  * backtracking) é feito no backend Flask + C# pelos demais integrantes.
  *
