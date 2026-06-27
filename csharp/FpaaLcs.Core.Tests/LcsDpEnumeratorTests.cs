@@ -31,4 +31,17 @@ public class LcsDpEnumeratorTests
         Assert.Contains("b", subsequencias);
         Assert.Contains("d", subsequencias);
     }
+
+    [Fact]
+    public void EncontrarTodas_SemCaracteresComuns_RemoveDuplicatas()
+    {
+        const string helena = "a";
+        const string marcus = "b";
+
+        var tabela = LcsDpTable.Montar(helena, marcus);
+        var subsequencias = LcsDpEnumerator.EncontrarTodas(tabela, helena, marcus);
+
+        Assert.Single(subsequencias);
+        Assert.Equal(string.Empty, subsequencias[0]);
+    }
 }

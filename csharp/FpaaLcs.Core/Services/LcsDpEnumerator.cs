@@ -7,7 +7,7 @@ public static class LcsDpEnumerator
 {
     public static IReadOnlyList<string> EncontrarTodas(int[,] tabela, string helena, string marcus)
     {
-        var encontradas = new List<string>();
+        var encontradas = new HashSet<string>();
         var pilha = new Stack<(int I, int J, List<char> Caminho)>();
 
         pilha.Push((helena.Length, marcus.Length, new List<char>()));
@@ -47,6 +47,6 @@ public static class LcsDpEnumerator
             }
         }
 
-        return encontradas;
+        return encontradas.ToList();
     }
 }
