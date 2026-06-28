@@ -1,65 +1,119 @@
 # Sincronizador de Padroes
 
-Projeto inicial da disciplina de Fundamentos de Projeto e Analise de Algoritmos.
+Projeto da disciplina de Fundamentos de Projeto e Analise de Algoritmos.
 
-## Estado atual da main
+## Objetivo
 
-Esta main foi estabilizada para voltar a ser uma base minima de colaboracao.
-Ela contem:
+Comparar as sequencias de eventos de Helena e Marcus e encontrar todas as
+maiores subsequencias comuns (LCS), respeitando a ordem dos eventos.
 
-- estrutura inicial do projeto
-- servidor Flask basico
-- frontend estatico inicial
-- validacao Python isolada (OK)
-- DP base em C# com tabela e comprimento maximo (OK)
+## Estado atual
+
+Esta main contem:
+
+- validacao Python das entradas (OK)
+- tabela de programacao dinamica em C# (OK)
 - enumeracao DP iterativa em C# (OK)
-- adapter Python inicial para integracao futura com C#
-- nucleo C# com backtracking isolado (OK)
-- testes C# da DP base, da enumeracao DP e do backtracking
-- documentacao curta da arquitetura
-
-A rota `/api/sincronizar` ainda nao faz parte da main. Ela deve entrar na
-branch do Integrante 6 depois que DP, enumeracao e backtracking estiverem
-consolidados.
+- backtracking recursivo em C# (OK)
+- API Flask com `/api/health` e `/api/sincronizar` (OK)
+- frontend integrado com a API, resultados e tabela DP (OK)
+- testes C# da DP base, enumeracao DP e backtracking
 
 ## Como executar
 
+Requisitos:
+
+- Python 3
+- .NET 8 SDK
+
 ```powershell
+dotnet build csharp/FpaaLcs.Core/FpaaLcs.Core.csproj
 pip install -r requirements.txt
 python server.py
 ```
 
 Abra `http://127.0.0.1:5000`.
 
-## Como testar o nucleo C#
-
-Requisitos:
-
-- .NET 8 SDK
+## Como testar
 
 ```powershell
 dotnet test csharp/FpaaLcs.Core.Tests/FpaaLcs.Core.Tests.csproj
+python -m py_compile server.py src/validacao.py src/csharp_adapter.py
+dotnet build csharp/FpaaLcs.Core/FpaaLcs.Core.csproj
+```
+
+Teste manual da API:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:5000/api/health
+
+Invoke-RestMethod `
+  -Method Post `
+  -ContentType "application/json" `
+  -Body '{"helena":"ijkijkii","marcus":"ikjikji","metodo":"dp"}' `
+  http://127.0.0.1:5000/api/sincronizar
+```
+
+O caso do roteiro deve retornar comprimento maximo `5`, quantidade `7`, tabela
+DP e as subsequencias:
+
+```text
+ijiji
+ijiki
+ijkji
+ikiji
+ikiki
+ikjii
+ikjki
+```
+
+## API
+
+### `GET /api/health`
+
+Retorna o status basico do servidor Flask.
+
+### `POST /api/sincronizar`
+
+Entrada:
+
+```json
+{
+  "helena": "ijkijkii",
+  "marcus": "ikjikji",
+  "metodo": "dp"
+}
+```
+
+`metodo` aceita `dp` ou `backtracking`.
+
+Resposta de sucesso:
+
+```json
+{
+  "helena": "ijkijkii",
+  "marcus": "ikjikji",
+  "comprimentoMaximo": 5,
+  "quantidade": 7,
+  "padroes": ["ijiji", "ijiki"],
+  "algoritmo": "Enumeracao DP",
+  "tabelaDp": [[0]]
+}
+```
+
+Erros de validacao retornam HTTP 400 com:
+
+```json
+{
+  "erro": "mensagem"
+}
 ```
 
 ## Organizacao
 
-- `server.py`: servidor Flask inicial
-- `frontend/`: interface estatica inicial
-- `src/validacao.py`: validacao de D e dos pares de sequencias
-- `src/csharp_adapter.py`: adapter inicial para integracao futura
-- `csharp/FpaaLcs.Core/`: nucleo C# inicial
-- `csharp/FpaaLcs.Core.Tests/`: testes do backtracking
-- `docs/`: notas tecnicas do grupo
-
-## Ordem sugerida de merge
-
-1. API
-2. Frontend e documentacao
-
-## Avisos para as branches
-
-- DP base ja foi absorvida de forma seletiva a partir de `feat/integrante3-dp`.
-- Enumeracao DP ja foi absorvida de forma seletiva a partir de `feat/felipe-enumeracao-dp`.
-- O Integrante 6 deve integrar a API usando `LcsDpTable`, `LcsDpEnumerator` e `LcsBacktracker`.
-- Lucas deve rebasear `feat/lucas-frontend-docs` antes de finalizar frontend e README.
-- Novas rotas de API devem ser feitas apenas na branch do Integrante 6.
+- `server.py`: servidor Flask e rotas da API
+- `frontend/`: interface web
+- `src/validacao.py`: validacao das entradas
+- `src/csharp_adapter.py`: chamada do Python para o executavel C#
+- `csharp/FpaaLcs.Core/`: nucleo em C# com DP, enumeracao e backtracking
+- `csharp/FpaaLcs.Core.Tests/`: testes do nucleo C#
