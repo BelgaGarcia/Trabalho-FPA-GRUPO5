@@ -12,9 +12,10 @@ Ela contem:
 - frontend estatico inicial
 - validacao Python isolada (OK)
 - DP base em C# com tabela e comprimento maximo (OK)
+- enumeracao DP iterativa em C# (OK)
 - adapter Python inicial para integracao futura com C#
 - nucleo C# com backtracking isolado (OK)
-- testes C# da DP base e do backtracking
+- testes C# da DP base, da enumeracao DP e do backtracking
 - documentacao curta da arquitetura
 
 A rota `/api/sincronizar` ainda nao faz parte da main. Ela deve entrar na
@@ -52,15 +53,13 @@ dotnet test csharp/FpaaLcs.Core.Tests/FpaaLcs.Core.Tests.csproj
 
 ## Ordem sugerida de merge
 
-1. Enumeracao DP
-2. Ajustes finais do backtracking, se forem necessarios apos a enumeracao
-3. API
-4. Frontend e documentacao
+1. API
+2. Frontend e documentacao
 
 ## Avisos para as branches
 
 - DP base ja foi absorvida de forma seletiva a partir de `feat/integrante3-dp`.
-- O Integrante 4 deve usar `LcsDpTable` como base para a enumeracao DP.
+- Enumeracao DP ja foi absorvida de forma seletiva a partir de `feat/felipe-enumeracao-dp`.
+- O Integrante 6 deve integrar a API usando `LcsDpTable`, `LcsDpEnumerator` e `LcsBacktracker`.
 - Lucas deve rebasear `feat/lucas-frontend-docs` antes de finalizar frontend e README.
-- Felipe deve recriar ou atualizar sua branch a partir desta main estabilizada.
 - Novas rotas de API devem ser feitas apenas na branch do Integrante 6.
