@@ -8,13 +8,13 @@ public static class LcsDpTable
 {
     public static int[,] Montar(string helena, string marcus)
     {
-        int m = helena.Length;
-        int n = marcus.Length;
-        var tabela = new int[m + 1, n + 1];
+        int linhas = helena.Length;
+        int colunas = marcus.Length;
+        var tabela = new int[linhas + 1, colunas + 1];
 
-        for (int i = 1; i <= m; i++)
+        for (int i = 1; i <= linhas; i++)
         {
-            for (int j = 1; j <= n; j++)
+            for (int j = 1; j <= colunas; j++)
             {
                 if (helena[i - 1] == marcus[j - 1])
                 {
