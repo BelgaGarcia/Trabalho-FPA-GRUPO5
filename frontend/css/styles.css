@@ -779,6 +779,12 @@ a {
   word-break: break-all;
 }
 
+/* Nome do algoritmo (quando informado pela API). */
+.result__algo {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
 /* Estatisticas */
 .stats {
   display: flex;

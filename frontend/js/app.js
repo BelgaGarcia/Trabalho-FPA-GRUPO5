@@ -382,27 +382,34 @@
 
     var par = document.createElement("div");
     par.className = "result__pair";
-    par.appendChild(criarParInfo("Helena", dados.helena));
-    par.appendChild(criarParInfo("Marcus", dados.marcus));
+    par.appendChild(criarParInfo("Helena", r.helena));
+    par.appendChild(criarParInfo("Marcus", r.marcus));
     head.appendChild(par);
+
+    // Algoritmo usado (quando o backend informa, ex.: API do Daniel).
+    if (r.algoritmo) {
+      var algo = document.createElement("p");
+      algo.className = "result__algo";
+      algo.textContent = r.algoritmo;
+      head.appendChild(algo);
+    }
+
     card.appendChild(head);
 
     // Estatisticas.
     var stats = document.createElement("div");
     stats.className = "stats";
     stats.appendChild(
-      criarStat("Comprimento máximo", String(dados.comprimento_maximo))
+      criarStat("Comprimento máximo", String(r.comprimento))
     );
-    stats.appendChild(
-      criarStat("Subsequências", String(dados.quantidade))
-    );
+    stats.appendChild(criarStat("Subsequências", String(r.quantidade)));
     card.appendChild(stats);
 
     // Requisito B: subsequencias.
-    card.appendChild(criarSubsequencias(dados.subsequencias));
+    card.appendChild(criarSubsequencias(r.subsequencias));
 
     // Requisito C: tabela DP.
-    card.appendChild(renderTabelaDP(dados.tabela, dados.helena, dados.marcus));
+    card.appendChild(renderTabelaDP(r.tabela, r.helena, r.marcus));
 
     resultadosEl.appendChild(card);
   }
