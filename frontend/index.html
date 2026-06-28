@@ -130,6 +130,25 @@
             />
           </div>
 
+          <fieldset class="field segmented">
+            <legend class="field__label">Método de resolução</legend>
+            <div class="segmented__group" role="radiogroup">
+              <label class="segmented__option">
+                <input
+                  type="radio"
+                  name="metodo"
+                  value="backtracking"
+                  checked
+                />
+                <span>DP + Backtracking</span>
+              </label>
+              <label class="segmented__option">
+                <input type="radio" name="metodo" value="dp" />
+                <span>Enumeração DP</span>
+              </label>
+            </div>
+          </fieldset>
+
           <div id="conjuntos" class="conjuntos"></div>
 
           <div class="actions">

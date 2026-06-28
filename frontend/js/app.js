@@ -28,7 +28,7 @@
   var D_MIN = 1;
   var D_MAX = 10;
   var MAX_CARACTERES = 80;
-  var METODO_PADRAO = "backtracking"; // o nucleo C# sempre usa DP + backtracking
+  var METODO_PADRAO = "backtracking"; // metodo padrao caso nenhum esteja marcado
   var TEMA_CHAVE = "fpaa-tema";
 
   // Referencias do DOM.
@@ -395,20 +395,62 @@
     btnSync.textContent = ocupado ? "Processando…" : "Sincronizar";
   }
 
+  // Le o metodo escolhido no controle segmentado. A main suporta "dp"
+  // (LcsDpEnumerator) e "backtracking" (LcsBacktracker); enviamos esse campo
+  // no payload para o nucleo C# decidir a estrategia de enumeracao.
+  function obterMetodo() {
+    var escolhido = document.querySelector('input[name="metodo"]:checked');
+    return escolhido ? escolhido.value : METODO_PADRAO;
+  }
+
   // Faz UMA chamada a /api/sincronizar para um par.
-  function sincronizarPar(par) {
+  //
+  // Nota: o backend atual (base da main) ainda nao expoe a rota de
+  // processamento /api/sincronizar -- ela entra na etapa de integracao da API.
+  // Por isso tratamos 404 e respostas nao-JSON de forma elegante, mantendo o
+  // frontend pronto para quando a rota existir.
+  function sincronizarPar(par, metodo) {
     return fetch("/api/sincronizar", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         helena: par.helena,
         marcus: par.marcus,
-        metodo: METODO_PADRAO,
+        metodo: metodo,
       }),
     }).then(function (resposta) {
-      return resposta.json().then(function (dados) {
-        return { ok: resposta.ok, dados: dados };
-      });
+      var tipo = resposta.headers.get("content-type") || "";
+
+      // Quando a rota de processamento ainda nao existe, o Flask responde com
+      // uma pagina de erro HTML (404/405), nao JSON. Detectamos pelo
+      // content-type e exibimos uma mensagem clara, em vez de um erro generico.
+      if (tipo.indexOf("application/json") === -1) {
+        return {
+          ok: false,
+          dados: {
+            status: "indisponivel",
+            motivo:
+              "A rota de processamento (/api/sincronizar) ainda não está " +
+              "disponível neste backend. A integração da API será adicionada " +
+              "na etapa do Integrante 6.",
+          },
+        };
+      }
+
+      return resposta
+        .json()
+        .then(function (dados) {
+          return { ok: resposta.ok, dados: dados };
+        })
+        .catch(function () {
+          return {
+            ok: false,
+            dados: {
+              status: "erro",
+              motivo: "Resposta inválida do servidor (era esperado JSON).",
+            },
+          };
+        });
     });
   }
 
@@ -425,6 +467,7 @@
     emptyStateEl.classList.add("is-hidden");
     setOcupado(true);
 
+    var metodo = obterMetodo();
     var indice = 0;
 
     function processarProximo() {
@@ -434,7 +477,7 @@
       }
 
       var numero = indice + 1;
-      sincronizarPar(pares[indice])
+      sincronizarPar(pares[indice], metodo)
         .then(function (resultado) {
           // Falha: limpa resultados e interrompe o lote (Requisito D).
           if (!resultado.ok || (resultado.dados && resultado.dados.status === "erro") ||

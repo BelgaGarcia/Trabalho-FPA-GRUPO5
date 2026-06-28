@@ -474,6 +474,72 @@ a {
   color: var(--text-tertiary);
 }
 
+/* Controle segmentado (seletor de metodo: DP + Backtracking / Enumeracao DP) */
+.segmented {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+.segmented .field__label {
+  display: block;
+  margin-bottom: var(--space-2);
+  padding: 0;
+}
+
+.segmented__group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-2);
+}
+
+.segmented__option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 var(--space-2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Input acessivel, visualmente embutido no rotulo (label e o alvo de clique). */
+.segmented__option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.segmented__option:hover {
+  color: var(--text-primary);
+}
+
+.segmented__option:has(input:checked) {
+  background-color: var(--surface-3);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.segmented__option:has(input:focus-visible) {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 /* ---------------------------------------------------------------------------
  * 8. Botoes
  * ------------------------------------------------------------------------- */
