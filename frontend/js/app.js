@@ -331,8 +331,43 @@
     return th;
   }
 
+  // Normaliza a resposta para um formato canonico, aceitando os dois contratos
+  // de API que existem no projeto:
+  //   - API do Daniel / base : comprimentoMaximo, padroes, tabelaDp  (camelCase)
+  //   - integrante3-dp        : comprimento_maximo, subsequencias, tabela
+  // Assim o frontend funciona independentemente de qual contrato subir na main.
+  function normalizarResultado(dados) {
+    var d = dados || {};
+    var subs = d.subsequencias || d.padroes || [];
+    if (!Array.isArray(subs)) {
+      subs = [];
+    }
+
+    var comprimento = d.comprimento_maximo;
+    if (comprimento === undefined || comprimento === null) {
+      comprimento = d.comprimentoMaximo;
+    }
+
+    var quantidade = d.quantidade;
+    if (quantidade === undefined || quantidade === null) {
+      quantidade = subs.length;
+    }
+
+    return {
+      helena: d.helena || "",
+      marcus: d.marcus || "",
+      comprimento: comprimento !== undefined ? comprimento : "—",
+      quantidade: quantidade,
+      subsequencias: subs,
+      tabela: d.tabela || d.tabelaDp || [],
+      algoritmo: d.algoritmo || "",
+    };
+  }
+
   // Monta o cartao completo de um conjunto (Requisitos B + C).
   function renderResultado(dados, numero) {
+    var r = normalizarResultado(dados);
+
     var card = document.createElement("article");
     card.className = "result";
 
