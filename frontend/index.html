@@ -1,50 +1,225 @@
 <!doctype html>
-<html lang="pt-BR">
+<!--
+  ============================================================================
+  Sincronizador de Padroes (LCS) - Interface Web
+  Trabalho pratico - Fundamentos de Projeto e Analise de Algoritmos (FPAA)
+  PUC Minas - Contagem
+
+  Modulo : Frontend / index.html (estrutura da interface)
+  Autores: Grupo 5 - Lucas Fernandes (Frontend e Documentacao)
+  Versao : 2.0 - Design system "Linear-style" (dark SaaS minimalista)
+  Data   : 27/06/2026
+
+  Observacao: a validacao das entradas e responsabilidade exclusiva do
+  backend. Esta interface apenas coleta os dados, consome a rota
+  /api/sincronizar e renderiza resultados ou mensagens de erro.
+  ============================================================================
+-->
+<html lang="pt-BR" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sincronizador de Padroes</title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#08090a" />
+    <title>Sincronizador de Padrões &middot; LCS</title>
+
+    <!-- Tipografia: Inter (stack defensivo definido tambem no CSS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Aplica o tema salvo antes da pintura para evitar flash (FOUC). -->
+    <script>
+      (function () {
+        try {
+          var salvo = localStorage.getItem("fpaa-tema");
+          var prefereLight =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: light)").matches;
+          var tema = salvo || (prefereLight ? "light" : "dark");
+          document.documentElement.setAttribute("data-theme", tema);
+        } catch (e) {
+          /* mantem o padrao escuro */
+        }
+      })();
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <main class="page">
+    <div class="aurora" aria-hidden="true"></div>
+
+    <div class="shell">
+      <!-- Cabecalho -->
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Sincronizador de Padrões — início">
+          <span class="brand__mark" aria-hidden="true">
+            <span class="brand__node"></span>
+            <span class="brand__edge"></span>
+            <span class="brand__node brand__node--alt"></span>
+          </span>
+          <span class="brand__name" translate="no">Sincronizador</span>
+        </a>
+
+        <div class="topbar__actions">
+          <div
+            id="server-status"
+            class="status"
+            data-state="checking"
+            role="status"
+          >
+            <span class="status__dot" aria-hidden="true"></span>
+            <span class="status__text">Verificando servidor&hellip;</span>
+          </div>
+
+          <button
+            type="button"
+            id="btn-theme"
+            class="ghost-btn"
+            aria-label="Alternar entre tema claro e escuro"
+            title="Alternar tema"
+          >
+            <span class="ghost-btn__icon" aria-hidden="true"></span>
+            <span data-theme-label>Claro</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero -->
       <section class="hero">
-        <p class="eyebrow">FPAA</p>
-        <h1>Sincronizador de Padroes</h1>
-        <p class="intro">
-          Base inicial da interface para comparar as sequencias de Helena e Marcus.
+        <p class="eyebrow">FPAA &middot; Programação Dinâmica</p>
+        <h1 class="hero__title">Sincronizador de Padrões</h1>
+        <p class="hero__lead">
+          Encontre as maiores subsequências comuns (LCS) entre as sequências de
+          eventos de <strong>Helena</strong> e <strong>Marcus</strong>, com a
+          respectiva tabela de programação dinâmica.
         </p>
       </section>
 
-      <section class="panel">
-        <form class="form">
-          <label>
-            <span>Helena</span>
-            <input id="input-helena" type="text" maxlength="80" placeholder="sequencia de eventos" />
-          </label>
+      <main class="workspace">
+        <!-- ========================================================== -->
+        <!-- Requisito A: Interface de entrada e envio                   -->
+        <!-- ========================================================== -->
+        <section class="panel panel--form" aria-labelledby="form-title">
+          <header class="panel__head">
+            <h2 id="form-title" class="panel__title">Entrada de dados</h2>
+            <p class="panel__desc">
+              Informe o número de conjuntos e as sequências de cada conjunto.
+              Use apenas letras minúsculas de <code>a</code> a <code>z</code>.
+            </p>
+          </header>
 
-          <label>
-            <span>Marcus</span>
-            <input id="input-marcus" type="text" maxlength="80" placeholder="sequencia de eventos" />
-          </label>
+          <div class="field field--inline">
+            <label class="field__label" for="input-d">
+              Número de conjuntos (D)
+            </label>
+            <input
+              type="number"
+              id="input-d"
+              name="conjuntos"
+              class="input input--narrow"
+              min="1"
+              max="10"
+              step="1"
+              value="1"
+              inputmode="numeric"
+              autocomplete="off"
+            />
+          </div>
 
-          <fieldset>
-            <legend>Metodo</legend>
-            <label><input type="radio" name="metodo" value="dp" checked /> DP</label>
-            <label><input type="radio" name="metodo" value="backtracking" /> DP + Backtracking</label>
+          <fieldset class="field segmented">
+            <legend class="field__label">Método de resolução</legend>
+            <div class="segmented__group" role="radiogroup">
+              <label class="segmented__option">
+                <input
+                  type="radio"
+                  name="metodo"
+                  value="backtracking"
+                  checked
+                />
+                <span>DP + Backtracking</span>
+              </label>
+              <label class="segmented__option">
+                <input type="radio" name="metodo" value="dp" />
+                <span>Enumeração DP</span>
+              </label>
+            </div>
           </fieldset>
 
-          <button type="button" id="btn-sync">Sincronizar</button>
-        </form>
+          <div id="conjuntos" class="conjuntos"></div>
 
-        <div class="status">
-          <p id="server-status">Verificando servidor...</p>
-          <pre id="preview-output">Os resultados aparecerao aqui nas proximas etapas.</pre>
-        </div>
-      </section>
-    </main>
+          <div class="actions">
+            <button type="button" id="btn-sync" class="btn btn--primary">
+              Sincronizar
+            </button>
+            <button type="button" id="btn-example" class="btn btn--ghost">
+              Carregar exemplo
+            </button>
+          </div>
+        </section>
 
-    <script src="/js/app.js"></script>
+        <!-- ========================================================== -->
+        <!-- Saida: erros (Req. D) + resultados (Req. B e C)             -->
+        <!-- ========================================================== -->
+        <section class="output">
+          <!-- Requisito D: Alert destrutivo (oculto por padrao) -->
+          <div
+            id="alert-erro"
+            class="alert alert--destructive is-hidden"
+            role="alert"
+            aria-live="assertive"
+            tabindex="-1"
+            hidden
+          >
+            <span class="alert__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+            </span>
+            <div class="alert__body">
+              <p class="alert__title">Falha ao sincronizar</p>
+              <p class="alert__message" id="alert-erro-msg"></p>
+            </div>
+          </div>
+
+          <!-- Estado vazio inicial -->
+          <div id="empty-state" class="empty">
+            <span class="empty__mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+                stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="m16 3 4 4-4 4" />
+                <path d="M20 7H4" />
+                <path d="m8 21-4-4 4-4" />
+                <path d="M4 17h16" />
+              </svg>
+            </span>
+            <h2 class="empty__title">Pronto para sincronizar</h2>
+            <p class="empty__text">
+              Preencha as sequências e clique em <strong>Sincronizar</strong>
+              para ver as subsequências comuns e a tabela de programação
+              dinâmica.
+            </p>
+          </div>
+
+          <!-- Requisitos B e C: cartoes de resultado por conjunto -->
+          <div id="resultados" class="resultados" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span class="footer__brand">Trabalho FPAA &middot; Grupo 5</span>
+        <span class="footer__meta">Programação Dinâmica + Backtracking</span>
+      </footer>
+    </div>
+
+    <script src="js/app.js"></script>
   </body>
 </html>
-
