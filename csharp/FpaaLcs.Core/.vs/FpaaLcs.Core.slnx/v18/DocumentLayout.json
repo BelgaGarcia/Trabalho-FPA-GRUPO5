@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\services\\validationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:services\\validationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\models\\lcserrorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:models\\lcserrorresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\models\\lcsdpresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:models\\lcsdpresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\models\\apprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:models\\apprequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\services\\lcsdpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:services\\lcsdpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\models\\lcsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:models\\lcsrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\services\\lcsdptable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:services\\lcsdptable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\exceptions\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:exceptions\\validationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|d:\\daniel\\puc\\fpaa\\nova pasta\\trabalho-fpa-grupo5\\csharp\\fpaalcs.core\\fpaalcs.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{60A28479-A1D5-F018-8366-3D7C10A21AF2}|FpaaLcs.Core.csproj|solutionrelative:fpaalcs.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LcsDpService.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Services\\LcsDpService.cs",
+              "RelativeDocumentMoniker": "Services\\LcsDpService.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Services\\LcsDpService.cs",
+              "RelativeToolTip": "Services\\LcsDpService.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAqwIwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T19:48:12.307Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppRequest.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\AppRequest.cs",
+              "RelativeDocumentMoniker": "Models\\AppRequest.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\AppRequest.cs",
+              "RelativeToolTip": "Models\\AppRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T19:46:17.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LcsDpResponse.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\LcsDpResponse.cs",
+              "RelativeDocumentMoniker": "Models\\LcsDpResponse.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\LcsDpResponse.cs",
+              "RelativeToolTip": "Models\\LcsDpResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T19:46:12.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LcsErrorResponse.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\LcsErrorResponse.cs",
+              "RelativeDocumentMoniker": "Models\\LcsErrorResponse.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\LcsErrorResponse.cs",
+              "RelativeToolTip": "Models\\LcsErrorResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T19:44:23.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LcsRequest.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\LcsRequest.cs",
+              "RelativeDocumentMoniker": "Models\\LcsRequest.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Models\\LcsRequest.cs",
+              "RelativeToolTip": "Models\\LcsRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T19:43:47.213Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ValidationService.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Services\\ValidationService.cs",
+              "RelativeDocumentMoniker": "Services\\ValidationService.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Services\\ValidationService.cs",
+              "RelativeToolTip": "Services\\ValidationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T19:41:16.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T18:30:06.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ValidationException.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Exceptions\\ValidationException.cs",
+              "RelativeDocumentMoniker": "Exceptions\\ValidationException.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Exceptions\\ValidationException.cs",
+              "RelativeToolTip": "Exceptions\\ValidationException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T19:40:06.09Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FpaaLcs.Core",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\FpaaLcs.Core.csproj",
+              "RelativeDocumentMoniker": "FpaaLcs.Core.csproj",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\FpaaLcs.Core.csproj",
+              "RelativeToolTip": "FpaaLcs.Core.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-06-28T19:39:31.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LcsDpTable.cs",
+              "DocumentMoniker": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Services\\LcsDpTable.cs",
+              "RelativeDocumentMoniker": "Services\\LcsDpTable.cs",
+              "ToolTip": "D:\\Daniel\\puc\\fpaa\\Nova pasta\\Trabalho-FPA-GRUPO5\\csharp\\FpaaLcs.Core\\Services\\LcsDpTable.cs",
+              "RelativeToolTip": "Services\\LcsDpTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-28T18:36:42.224Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
