@@ -1,4 +1,11 @@
-"""Validacao de entradas conforme o roteiro do trabalho FPAA."""
+"""
+Validação de entradas conforme o roteiro do trabalho FPAA.
+
+Autores: Leni Rocha Bento
+Versão: 1.0.0
+Data: 2026-05-25
+Disciplina: Fundamentos de Projeto e Análise de Algoritmos
+"""
 
 MAX_CASOS = 10
 MIN_LEN = 1
